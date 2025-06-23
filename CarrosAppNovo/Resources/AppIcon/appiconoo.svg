@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 456 456">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-2 {
+        fill: #5100d4;
+      }
+
+      .cls-3 {
+        fill: #ff0;
+        font-family: GothamRounded-Book, 'Gotham Rounded';
+        font-size: 150px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" width="456" height="456"/>
+  <text class="cls-3" transform="translate(50.58 268.22)"><tspan x="0" y="0">au</tspan><tspan class="cls-1" x="179.25" y="0">t</tspan><tspan x="237.6" y="0">o</tspan></text>
+</svg>

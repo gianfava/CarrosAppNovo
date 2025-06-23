@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarrosAppNovo.CarrosPage"
+             Title="CarrosPage">
+    
+    <VerticalStackLayout Spacing="10" Padding="20">
+
+        <Image Source="logo.png"
+               HeightRequest="80"
+               Aspect="AspectFit"
+               Margin="0,0,0,10" />
+
+        <Label x:Name="lblStatus"
+               Text="Conectando ao banco de dados..."
+               HorizontalOptions="Center"
+               FontSize="Small" />
+
+        <SearchBar x:Name="searchBar"
+                   Placeholder="Buscar por marca ou modelo..."
+                   SearchButtonPressed="OnSearchButtonPressed" />
+
+        <Frame Padding="10" CornerRadius="5">
+            <Grid RowDefinitions="Auto,Auto,Auto"
+                      ColumnDefinitions="*,*"
+                      RowSpacing="10"
+                      ColumnSpacing="10">
+
+                <Entry Grid.Row="0" Grid.Column="0" x:Name="txtMarca" Placeholder="Marca" />
+                <Entry Grid.Row="0" Grid.Column="1" x:Name="txtModelo" Placeholder="Modelo" />
+
+                <Entry Grid.Row="1" Grid.Column="0" x:Name="txtAno" Placeholder="Ano" Keyboard="Numeric" />
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="txtCor" Placeholder="Cor" />
+
+                <Entry Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="txtPlaca" Placeholder="Placa" />
+
+            </Grid>
+        </Frame>
+
+
+        <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+
+            <Button Grid.Column="0" 
+            Text="Adicionar" 
+            ImageSource="adicionar.png"
+            ContentLayout="Top,2"
+            FontSize="12"
+            Clicked="OnAdicionarClicked" />
+
+            <Button Grid.Column="1" 
+            Text="Atualizar" 
+            ImageSource="atualizar.png"
+            ContentLayout="Top,2"
+            FontSize="12"
+            Clicked="OnAtualizarClicked" />
+
+            <Button Grid.Column="2" 
+            Text="Limpar" 
+            ImageSource="limpar.png"
+            ContentLayout="Top,2"
+            FontSize="12"
+            Clicked="OnLimparClicked" />
+
+        </Grid>
+
+
+
+
+        <Label Text="Lista de Carros" FontAttributes="Bold" />
+        <ListView x:Name="lstCarros"
+                  ItemSelected="OnCarroSelected"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10" ColumnDefinitions="*,Auto">
+
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="{Binding Modelo}" FontAttributes="Bold" />
+                                <Label Text="{Binding Marca}" />
+                                <Label FontSize="Small">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Ano, StringFormat='Ano: {0}'}" />
+                                            <Span Text=" - " />
+                                            <Span Text="{Binding Cor, StringFormat='Cor: {0}'}" />
+                                            <Span Text=" - " />
+                                            <Span Text="{Binding Placa, StringFormat='Placa: {0}'}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+
+                            <Button Grid.Column="1"
+                                    ImageSource="apagar2.png"
+                                    BackgroundColor="#fa5050"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    VerticalOptions="Center"
+                                    Clicked="OnApagarClicked"
+                                    CommandParameter="{Binding .}" />
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
